@@ -6,6 +6,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "build:lambdas": "tsc -p tsconfig.json --outDir lambdas/dist",
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
@@ -14,6 +15,8 @@
     "bootstrap": "cdk bootstrap"
   },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.149",
+    "@types/aws-sdk": "^0.0.42",
     "@types/jest": "^29.5.12",
     "@types/node": "^22.5.4",
     "aws-cdk": "2.163.1",
@@ -24,6 +27,7 @@
   },
   "dependencies": {
     "aws-cdk-lib": "^2.163.1",
+    "aws-sdk": "^2.1692.0",
     "constructs": "^10.4.2",
     "source-map-support": "^0.5.21"
   }
