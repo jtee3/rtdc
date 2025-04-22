@@ -34,13 +34,13 @@ export class RealtimeDocStack extends cdk.Stack {
     const getFn = new Function(this, 'GetDocumentFn', {
       runtime: Runtime.NODEJS_18_X,
       handler: 'get.handler',
-      code: Code.fromAsset(path.join(__dirname, '../src/lambdas')),
+      code: Code.fromAsset(path.join(__dirname, '../lambdas')),
       environment: { TABLE_NAME: table.tableName },
     });
     const updateFn = new Function(this, 'UpdateDocumentFn', {
       runtime: Runtime.NODEJS_18_X,
       handler: 'update.handler',
-      code: Code.fromAsset(path.join(__dirname, '../src/lambdas')),
+      code: Code.fromAsset(path.join(__dirname, '../lambdas')),
       environment: { TABLE_NAME: table.tableName },
     });
 
