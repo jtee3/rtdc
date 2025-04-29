@@ -1,12 +1,17 @@
+// amplifyConfig.ts
 import { Amplify } from 'aws-amplify';
-
-const GraphQLAPIURL = process.env.NEXT_PUBLIC_GRAPHQL_API_URL!;
-const GraphQLAPIKey = process.env.NEXT_PUBLIC_GRAPHQL_API_KEY!;
-const Region        = process.env.AWS_REGION!;
+import outputs from '../amplify_outputs.json';
 
 Amplify.configure({
-  aws_appsync_graphqlEndpoint:    GraphQLAPIURL,
-  aws_appsync_region:             Region,
-  aws_appsync_authenticationType: 'API_KEY',
-  aws_appsync_apiKey:             GraphQLAPIKey,
-} as any);
+  API: {
+    GraphQL: {
+      // AppSync URL 
+      endpoint: outputs.GraphQLAPIURL,
+      // AWS region—ensure for NEXT_PUBLIC_AWS_REGION 
+      region: process.env.NEXT_PUBLIC_AWS_REGION!,
+      // API key auth
+      defaultAuthMode: 'apiKey',
+      apiKey: outputs.GraphQLAPIKey,
+    }
+  }
+});
